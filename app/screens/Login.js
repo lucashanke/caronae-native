@@ -5,55 +5,31 @@ import {
   SafeAreaView,
   View,
   Image,
-  TextInput,
   ScrollView,
 } from 'react-native';
 
 import appStyles from '../styles';
+import LoginForm from '../components/LoginForm';
 
-export default class Login extends Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = { 
-      id: '',
-      key: '',
-    };
-  }
-
-  render() {
-    return (
-      <SafeAreaView style={styles.container}>
-        <ScrollView contentContainerStyle={styles.container}>
-          <Image style={styles.logo} source={require('../img/logo.png')} />
-          <View style={styles.text}> 
-            <Text style={styles.greetings}>
-              Olá :)
-            </Text>
-            <Text style={styles.instructions}>
-              Bem vinda(o) ao aplicativo de caronas da UFRJ. 
-              O acesso é restrito a usuária(o)s vinculada(o)s à Universidade. 
-              Para continuar, clique aqui para obter sua chave de acesso, usando seu login da Intranet UFRJ. 
-            </Text>
-            <TextInput
-              style={[appStyles.input, { textAlign: 'center' } ]}
-              editable
-              placeholder='Sua identificação aqui'
-              onChangeText={(id) => this.setState({id})}
-              value={this.state.id}
-            />
-            <TextInput
-              style={[appStyles.input, { textAlign: 'center' } ]}
-              editable
-              placeholder='Sua chave aqui'
-              onChangeText={(key) => this.setState({key})}
-              value={this.state.key}
-            />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
+const Login = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Image style={styles.logo} source={require('../img/logo.png')} />
+        <View style={styles.text}> 
+          <Text style={styles.greetings}>
+            Olá :)
+          </Text>
+          <Text style={styles.instructions}>
+            Bem vinda(o) ao aplicativo de caronas da UFRJ. 
+            O acesso é restrito a usuária(o)s vinculada(o)s à Universidade. 
+            Para continuar, clique aqui para obter sua chave de acesso, usando seu login da Intranet UFRJ. 
+          </Text>
+          <LoginForm />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -81,3 +57,5 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+export default Login;

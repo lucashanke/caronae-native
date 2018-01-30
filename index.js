@@ -8,6 +8,7 @@ import reducers from './app/reducers';
 
 const initialState = {
   signedIn: false,
+  loading: false,
 };
 
 const store = createStore(reducers, initialState);
