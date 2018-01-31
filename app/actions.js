@@ -1,4 +1,4 @@
-export const signIn = (user) => ({
+export const signIn = user => ({
   type: 'SIGN_IN',
   payload: {
     user,
@@ -8,7 +8,7 @@ export const signIn = (user) => ({
 export const SIGN_OUT = {
   type: 'SIGN_OUT',
   payload: {},
-}
+};
 
 export const startLoading = () => ({
   type: 'START_LOADING',

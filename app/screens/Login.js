@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,29 +8,8 @@ import {
   ScrollView,
 } from 'react-native';
 
-import appStyles from '../styles';
 import LoginForm from '../components/LoginForm';
-
-const Login = () => {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Image style={styles.logo} source={require('../img/logo.png')} />
-        <View style={styles.text}> 
-          <Text style={styles.greetings}>
-            Olá :)
-          </Text>
-          <Text style={styles.instructions}>
-            Bem vinda(o) ao aplicativo de caronas da UFRJ. 
-            O acesso é restrito a usuária(o)s vinculada(o)s à Universidade. 
-            Para continuar, clique aqui para obter sua chave de acesso, usando seu login da Intranet UFRJ. 
-          </Text>
-          <LoginForm />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+import logo from '../img/logo.png';
 
 const styles = StyleSheet.create({
   container: {
@@ -57,5 +36,25 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+const Login = () => (
+  <SafeAreaView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Image style={styles.logo} source={logo} />
+      <View style={styles.text}>
+        <Text style={styles.greetings}>
+            Olá :)
+        </Text>
+        <Text style={styles.instructions}>
+            Bem vinda(o) ao aplicativo de caronas da UFRJ.
+            O acesso é restrito a usuária(o)s vinculada(o)s à Universidade.
+            Para continuar, clique aqui para obter sua chave de acesso,
+            usando seu login da Intranet UFRJ.
+        </Text>
+        <LoginForm />
+      </View>
+    </ScrollView>
+  </SafeAreaView>
+);
 
 export default Login;

@@ -6,7 +6,7 @@ const appStyles = StyleSheet.create({
     ...Platform.select({
       ios: {
         borderBottomWidth: 1,
-        marginBottom: 5,
+        marginBottom: 10,
         height: 30,
       },
       android: {
@@ -24,7 +24,7 @@ const appStyles = StyleSheet.create({
     bottom: 0,
     alignItems: 'center',
     justifyContent: 'center',
-  }
+  },
 });
 
 export default appStyles;

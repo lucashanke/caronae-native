@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "ios": "react-native run-ios",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "lint": "eslint --ext .js ."
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -20,6 +21,13 @@
   "devDependencies": {
     "babel-jest": "22.1.0",
     "babel-preset-react-native": "4.0.0",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-react-native": "^3.2.1",
     "jest": "22.1.4",
     "react-test-renderer": "16.2.0",
     "redux-devtools": "^3.4.1"

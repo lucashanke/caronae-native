@@ -8,7 +8,7 @@ import appStyles from '../styles';
 
 const Loading = () => (
   <View style={appStyles.loading}>
-    <ActivityIndicator size='large' />
+    <ActivityIndicator size="large" />
   </View>
 );
 

@@ -5,9 +5,9 @@ const caronae = axios.create({
   timeout: 1000,
 });
 
-export const login = (id, token) => {
-  return caronae.post('/user/login', {
-    id_ufrj: id,
-    token,
-  });
-};
+const login = (id, token) => caronae.post('/user/login', {
+  id_ufrj: id,
+  token,
+});
+
+export default login;

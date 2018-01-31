@@ -1,0 +1,16 @@
+{
+    "extends": [ "airbnb" ],
+    "rules": {
+        "react/jsx-filename-extension": "off",
+        "import/extensions": "off"
+    },
+    "plugins": [
+        "react",
+        "react-native",
+        "jest"
+    ],
+    "env": {
+        "react-native/react-native": true,
+        "jest/globals": true
+    }
+}
