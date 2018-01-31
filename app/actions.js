@@ -1,7 +1,9 @@
-export const signIn = user => ({
+export const signIn = (user, id, token) => ({
   type: 'SIGN_IN',
   payload: {
     user,
+    token,
+    id,
   },
 });
 

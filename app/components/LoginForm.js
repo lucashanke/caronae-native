@@ -6,12 +6,12 @@ import {
   TextInput,
   Button,
   Alert,
+  AsyncStorage,
 } from 'react-native';
 
 import appStyles from '../styles';
 import login from '../services/caronae';
 import { signIn, startLoading, stopLoading } from '../actions';
-
 
 const unauthorizedAlert = () => {
   Alert.alert(
@@ -21,6 +21,11 @@ const unauthorizedAlert = () => {
   );
 };
 
+const saveUserData = (id, token) => {
+  AsyncStorage.setItem('@CaronaeStore:id', id);
+  AsyncStorage.setItem('@CaronaeStore:token', token);
+};
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -28,15 +33,18 @@ class LoginForm extends Component {
       id: '',
       token: '',
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit() {
     this.props.dispatch(startLoading());
+    const { id, token } = this.state;
 
-    login(this.state.id, this.state.token).then((response) => {
+    login(id, token).then((response) => {
       this.props.dispatch(stopLoading());
       if (response.data.user !== undefined) {
-        this.props.dispatch(signIn(response.data.user));
+        this.props.dispatch(signIn(response.data.user, token));
+        saveUserData(id, token);
         return;
       }
       unauthorizedAlert();

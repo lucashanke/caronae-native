@@ -1,10 +1,15 @@
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case 'SIGN_IN': {
-      return { ...state, signedIn: true };
+      return {
+        ...state,
+        id: action.payload.id,
+        token: action.payload.token,
+        user: action.payload.user,
+      };
     }
     case 'SIGN_OUT': {
-      return { ...state, signedIn: true };
+      return { ...state, id: undefined, token: undefined, user: undefined };
     }
     case 'START_LOADING': {
       return { ...state, loading: true };
